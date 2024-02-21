@@ -1,5 +1,4 @@
-# Force using 3.10
-FROM ghcr.io/granth7/alpine:3.17.3
+FROM ghcr.io/granth7/alpine:3.19.1
 
 ARG TARGETPLATFORM
 ARG VERSION
