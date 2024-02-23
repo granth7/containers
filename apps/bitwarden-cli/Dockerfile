@@ -1,16 +1,12 @@
-FROM ghcr.io/granth7/alpine:rolling@sha256:9e9c883b650af4379c14c2202e8840a4fdb65c8c5db8302cd794af5916549a1f
+FROM node:21.6-bookworm as build
 
-ARG TARGETPLATFORM
-ARG VERSION
-ARG CHANNEL
+ARG BW_VERSION=2024.1.0
 
 LABEL org.opencontainers.image.source="https://github.com/bitwarden/clients"
 
 WORKDIR /usr/local/bin
 
-RUN \
-  apk add --no-cache npm argon2-libs python3 \
-  && npm i -g @bitwarden/cli@${VERSION}
+RUN npm i -g @bitwarden/cli@${BW_VERSION}
 
 COPY ./entrypoint.sh /entrypoint.sh
 CMD ["/entrypoint.sh"]
