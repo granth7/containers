@@ -8,7 +8,9 @@ LABEL org.opencontainers.image.source="https://github.com/bitwarden/clients"
 
 WORKDIR /usr/local/bin
 
-RUN npm i -g @bitwarden/cli@${VERSION}
+RUN \
+  apk add --no-cache npm argon2-libs python3 \
+  && npm i -g @bitwarden/cli@${VERSION}
 
 COPY ./entrypoint.sh /entrypoint.sh
 CMD ["/entrypoint.sh"]
