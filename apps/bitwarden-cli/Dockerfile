@@ -4,7 +4,7 @@ ARG BW_VERSION=2024.1.0
 
 LABEL org.opencontainers.image.source="https://github.com/bitwarden/clients"
 
-WORKDIR /usr/local/bin
+WORKDIR /app
 
 RUN npm i -g @bitwarden/cli@${BW_VERSION}
 
