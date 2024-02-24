@@ -8,5 +8,5 @@ WORKDIR /usr/local/bin
 
 RUN npm i -g @bitwarden/cli@${VERSION}
 
-COPY ./entrypoint.sh /entrypoint.sh
+COPY ./apps/bitwarden-cli/entrypoint.sh /entrypoint.sh
 CMD ["/entrypoint.sh"]
